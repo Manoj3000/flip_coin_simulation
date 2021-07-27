@@ -5,7 +5,7 @@ echo "Welcome to flip coin simulator program"
 heads=0
 tails=0
 
-for (( i=1; i<=10; i++ ))
+while (( $heads < 21 && $tails < 21 ))
 do
     res=$((RANDOM%2))
 
@@ -25,7 +25,9 @@ then
         echo "Match tied"
 elif [ $heads -gt $tails ] 
 then
-        echo "Heads win"
+        winCount=$(($heads - $tails))
+        echo "Heads win by $winCount"
 else
-        echo "Tails win"
+        winCount=$(($tails - $heads))
+        echo "Tails win by $winCount"
 fi
